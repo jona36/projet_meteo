@@ -8,7 +8,7 @@
 #include "rapidjson/stringbuffer.h"
 #include <mysql/mysql.h>
 #include <ctime>
-
+#include <unistd.h>
 
 using namespace rapidjson;
 using namespace std;
@@ -19,9 +19,6 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 	return size * nmemb;
 }
 
-
-
-
 int main()
 {
 	while(1)
@@ -30,7 +27,7 @@ int main()
 		time_t actuel = time(0);
 		tm *ltm = localtime(&actuel);
 
-		if(ltm->tm_sec==00)
+		if(ltm->tm_min==00)
 		{
 			MYSQL mysql;
 			mysql_init(&mysql);
@@ -40,6 +37,8 @@ int main()
 			string readBuffer;
 			std::ostringstream meteoValeur;
 			curl = curl_easy_init();
+			int T;
+
 			if(curl) 
 			{
 				curl_easy_setopt(curl, CURLOPT_URL, "https://api.openweathermap.org/data/2.5/weather?id=6426887&units=metric&appid=047b86ef0e0320013c7ee78d7628a834");
@@ -69,12 +68,8 @@ int main()
 			{
 				cout << "erreur" << endl;
 			}
-			while(ltm->tm_sec==01)
-			{}
+			sleep(65);
 		}
 	}
-
-
-
 	return 0;
 }
