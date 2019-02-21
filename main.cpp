@@ -25,8 +25,8 @@ int main()
 			tempToSQL(ltm);
 
 			cout << "temperature = " << temp << " C" << endl << endl;
-			cout << ltm->tm_mday << "/" << ltm->tm_mon + 1 << "/" << ltm->tm_year + 1900 << "', '"
-				 << ltm->tm_hour << ":" << ltm->tm_min << ":" << ltm->tm_sec << "', " << temp << " °C" << endl << endl;
+			cout << ltm->tm_mday << "/" << ltm->tm_mon + 1 << "/" << ltm->tm_year + 1900 << " "
+				 << ltm->tm_hour << "h" << ltm->tm_min << ":" << ltm->tm_sec << ", " << temp << "°C" << endl << endl;
 			cout << bar << endl;
 
 			sleep(70);
