@@ -3,9 +3,9 @@
 #include <string>
 #include <sstream>
 #include <curl/curl.h>
-#include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
+#include "include/rapidjson/document.h"
+#include "include/rapidjson/writer.h"
+#include "include/rapidjson/stringbuffer.h"
 #include <mysql/mysql.h>
 #include <ctime>
 #include <unistd.h>
